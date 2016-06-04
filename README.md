@@ -1,5 +1,6 @@
 # Logicle_transform
-MATLAB functions to calculate internal variables and apply the logicle transformation to a matrix of data
+MATLAB functions to calculate internal variables and apply the logicle transformation to a matrix of data.
+
 To apply the logicle transform, the parameters of the transformation must forst be set. There are four parameters:
 
 T = "top of scale" value
