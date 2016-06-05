@@ -23,22 +23,16 @@ if (nargin ==5)
     A = (M*zero - W)/(1 - zero);
 end
 %%
-% standard parameters
-p.T = T;
-p.M = M;
-p.W = W;
-p.A = A;
-%%
 % actual parameters formulas from biexponential paper
-p.w = p.W/(p.M+p.A);
-p.x2 = p.A/(p.M+p.A);
+p.w = W/(M+A);
+p.x2 = A/(M+A);
 p.x1 = p.x2 + p.w;
 p.x0 = p.x2 + 2*p.w;
-p.b = (p.M+p.A)*log(10);
+p.b = (M+A)*log(10);
 p.d = solve_RTSAFE(p.b,p.w);
 c_a = exp(p.x0*(p.b+p.d));
 mf_a = exp(p.b*p.x1) - c_a/exp(p.d*p.x1);
-p.a = p.T/((exp(p.b) - mf_a) - c_a/exp(p.d));
+p.a = T/((exp(p.b) - mf_a) - c_a/exp(p.d));
 p.c = c_a*p.a;
 p.f = -mf_a*p.a;
 %%
