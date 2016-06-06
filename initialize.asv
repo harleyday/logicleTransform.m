@@ -1,16 +1,16 @@
 function p = initialize (T, W, M, A, varargin)
 % allocate the parameter structure
 if (T <= 0)
-    error('T must be T > 0');
+    error('T must be >0');
 end
 if (W < 0)
-    error('W must be W >= 0');
+    error('W must be >=0');
 end
 if (M <= 0)
-    error('M must be M > 0');
+    error('M must be >0');
 end
 if (2*W > M)
-    error('W must be W < M/2');
+    error('W must be ');
 end
 if (A > M - 2*W)
     error('A must be -W < A < (M - 2*W)');
