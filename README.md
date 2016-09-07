@@ -19,13 +19,17 @@ The object stores internal variables for later calculations based on data. In th
 Once the object is created, the data can be tranformed as follows:
 
 %%
+
 transformed_data = obj.transform(data);
+
 %%
 
 The inverse operation can be carried out as follows:
 
 %%
+
 data = obj.inverse(transformed_data);
+
 %%
 
 The variable data can be a matrix of any number of dimensions. The logicle_transform function calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
@@ -33,11 +37,19 @@ The variable data can be a matrix of any number of dimensions. The logicle_trans
 Axes ticks amd labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object. See example below:
 
 %%
+
 obj = LogicleTransform(10000,2,4,0);
+
 x = linspace(obj.inverse(0),10000,1000);
+
 y = obj.transform(x);
+
 plot(x,y);
+
 ax = gca;
+
 ax.YTick = obj.Tick;
+
 ax.YTickLabel = obj.TickLabel;
+
 %%
