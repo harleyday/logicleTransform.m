@@ -11,9 +11,10 @@ To apply the logicle transform, the parameters of the transformation must first 
 
 These parameters are specified when creating a new LogicleTransform object:
 
-`obj = LogicleTransform(T,W,M,A,varargin);`
+`obj = LogicleTransform(T,W,M,A)`  
+`obj = LogicleTransform(T,W,M,A,n_bins);`
 
-The varargin is an optional parameter specifying the number of bins to be included if the fast logicle transform algorithm is used.
+The optional n_bins parameter specifies the number of bins to be included in the fast logicle transform algorithm. When this parameter is specified, the fast logicle transform is used.
 
 The object stores internal variables for later calculations based on data. In this way, the object guides the calculation of many data points efficiently.
 
