@@ -31,7 +31,7 @@ The variable data can be a matrix of any number of dimensions. The logicle_trans
 Axes ticks amd labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object. See example below:
 
 `obj = LogicleTransform(10000,2,4,0);`  
-`x = linspace(obj.inverse(0),10000,1000);`  
+`x = linspace(obj.inverse(0),obj.T,1000);`  
 `y = obj.transform(x);`  
 `plot(x,y);`  
 `ax = gca;`  
