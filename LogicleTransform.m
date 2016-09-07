@@ -10,6 +10,8 @@ classdef LogicleTransform
     end
     
     properties (Access = private)
+        % variables used by numerical methods which calculate logicle
+        % transform
         w
         x2
         x1
@@ -21,6 +23,7 @@ classdef LogicleTransform
         f
         xTaylor
         taylor
+        % fast logicle transform properties
         n_bins
         lookup
     end
@@ -85,7 +88,7 @@ classdef LogicleTransform
                     obj.n_bins = varargin{1};
                     obj.lookup = inverse(obj,linspace(0,1,obj.n_bins+1));
                 else
-                    error('Number of bins must be a scalar integar. We advise at least 2^8 bins for good resolution.')
+                    error('Number of bins must be a scalar integar. We advise at least 2^5 bins for good resolution.')
                 end
             end
             %% set axes tick and label properties
@@ -105,13 +108,15 @@ classdef LogicleTransform
             obj.Tick = zeros(1,n_ticks);
             obj.TickLabel = cell(1,n_ticks);
             tick_index = 1;
+            previous_decade = -Inf;
             for k=1:n_decades
                 % write TickLabel for the bottom of this decade
-                if abs(pow(k))<3 % if the power we're about to label is less than 3, don't add the label because they will overlap
+                if obj.transform(decades(k))-obj.transform(previous_decade)<0.02 % if the distance between this decade and the last is less than 0.02, do not label this decade because we may overlap the labels
                     obj.TickLabel{tick_index} = '';
                 else
                     if sn(k)==0
-                        obj.TickLabel{tick_index} = [sign_string,'10^{',num2str(pow(k)),'}'];
+                        obj.TickLabel{tick_index-1} = '0';
+                        obj.TickLabel{tick_index} = '';
                     else
                         if sn(k)==-1
                             sign_string = '-';
@@ -151,6 +156,7 @@ classdef LogicleTransform
                     obj.TickLabel{i} = '';
                 end
                 
+                previous_decade = decades(k);
                 tick_index = tick_index + n_increments;
             end
         end
@@ -162,11 +168,12 @@ classdef LogicleTransform
             data_out = zeros(size(data_in));
             if ~isempty(obj.n_bins)
                 for i = 1:length(data_in(:))
-                    % lookup the nearest value;
+                    % lookup the bin into which this data point falls and return the left edge of the bin
                     index = obj.n_bins;
-                    while obj.lookup(index)>data_in(i)&&(index>0) % while lower edge is greater than this data point, decrement the index
+                    while obj.lookup(index)>data_in(i)&&(index>1) % while lower edge is greater than this data point and we're not in the bottom-most bin, decrement the index
                         index = index - 1;
                     end
+                    
                     % inverse interpolate the table linearly
                     delta = (data_in(i)-obj.lookup(index))./(obj.lookup(index+1)-obj.lookup(index));
                     data_out(i) = (index-1+delta)/obj.n_bins;
