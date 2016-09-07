@@ -41,4 +41,4 @@ Axes ticks amd labels can be set by acessing the Tick and TickLabel properties o
 Algorithms were developed by:  
 Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. doi:10.1002/cyto.a.22030.
 
-[link](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4761345/)
+Here's a [link to the paper](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4761345/).
