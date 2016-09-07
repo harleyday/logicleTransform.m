@@ -1,6 +1,6 @@
 # LogicleTransform
----
-MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
+
+## MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
 
 To apply the logicle transform, the parameters of the transformation must first be set. There are four parameters:
 
@@ -29,6 +29,8 @@ The inverse operation can be carried out as follows:
 The variable data can be a matrix of any number of dimensions. The logicle_transform function calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
 
 Axes ticks amd labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object. See example below:
+
+## Example
 
 `obj = LogicleTransform(10000,2,4,0);`  
 `x = linspace(obj.inverse(0),obj.T,1000);`  
