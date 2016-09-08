@@ -42,7 +42,7 @@ Axes ticks amd labels can be set by acessing the Tick and TickLabel properties o
 `ax.YTickLabel = obj.TickLabel;`
 
 ## Example 2
-MATLAB array objects may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
+MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
 
 `obj = [LogicleTransform(10000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];`  
 `x = randn(1000,2)*50 + 10;`  
