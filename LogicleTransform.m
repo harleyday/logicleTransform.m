@@ -64,7 +64,7 @@ classdef LogicleTransform
             obj.x1 = obj.x2 + obj.w;
             obj.x0 = obj.x2 + 2*obj.w;
             obj.b = (M+A)*log(10);
-            obj.d = solve_RTSAFE(obj,obj.b,obj.w);
+            obj.d = solve_RTSAFE(obj.b,obj.w);
             c_a = exp(obj.x0*(obj.b+obj.d));
             mf_a = exp(obj.b*obj.x1) - c_a/exp(obj.d*obj.x1);
             obj.a = T/((exp(obj.b) - mf_a) - c_a/exp(obj.d));
@@ -84,11 +84,11 @@ classdef LogicleTransform
             end
             obj.taylor(2) = 0;
             if (nargin == 5)
-                if isscalar(varargin{1})
+                if isscalar(varargin{1}) && round(varargin{1})==varargin{1}
                     obj.n_bins = varargin{1};
                     obj.lookup = inverse(obj,linspace(0,1,obj.n_bins+1));
                 else
-                    error('Number of bins must be a scalar integar. We advise at least 2^5 bins for good resolution.')
+                    error('Number of bins must be a scalar integar. We advise between 2^5 and 2^10 bins for high resolution and speed.')
                 end
             end
             %% set axes tick and label properties
@@ -108,10 +108,10 @@ classdef LogicleTransform
             obj.Tick = zeros(1,n_ticks);
             obj.TickLabel = cell(1,n_ticks);
             tick_index = 1;
-            previous_decade = -Inf;
+            previous_labeled_decade = -Inf;
             for k=1:n_decades
                 % write TickLabel for the bottom of this decade
-                if obj.transform(decades(k))-obj.transform(previous_decade)<0.02 % if the distance between this decade and the last is less than 0.02, do not label this decade because we may overlap the labels
+                if obj.transform(decades(k))-obj.transform(previous_labeled_decade)<0.02 % if the distance between this decade and the last is less than 0.02, do not label this decade because we may overlap the labels
                     obj.TickLabel{tick_index} = '';
                 else
                     if sn(k)==0
@@ -125,6 +125,7 @@ classdef LogicleTransform
                         end
                         obj.TickLabel{tick_index} = [sign_string,'10^{',num2str(pow(k)),'}'];
                     end
+                    previous_labeled_decade = decades(k);
                 end
                 
                 if k==n_decades
@@ -156,9 +157,72 @@ classdef LogicleTransform
                     obj.TickLabel{i} = '';
                 end
                 
-                previous_decade = decades(k);
                 tick_index = tick_index + n_increments;
             end
+            
+            function d = solve_RTSAFE(b,w)
+                % Paraphrasing of c++ implementation by Wayne A. Moore found at
+                % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
+                % w == 0 means its really arcsinh
+                if (w==0)
+                    d = b;
+                    return;
+                else
+                    % Precision is the same as that of b
+                    tolerance = 2*eps(b);
+                    % Based on RTSAFE from Numerical Recepies 1st Edition
+                    % Bracket the root
+                    d_lo = 0;
+                    d_hi = b;
+                    % Bisection first step
+                    d = (d_lo+d_hi)/2;
+                    last_delta = d_hi - d_lo;
+                    % evaluate the f(w,b) = 2 * (ln(d) - ln(b)) + w * (b + d) and its
+                    % derrivative
+                    f_b = -2*log(b) + w*b;
+                    f = 2*log(d) + w*d + f_b;
+                    last_f = NaN; % storage of last value of f
+                    for itratn=1:20
+                        df = 2/d + w;
+                        % if Newton's method would step outside the bracke or if it isn't converging quickly enough
+                        if (((d - d_hi) * df - f) * ((d - d_lo) * df - f) >= 0 || abs(1.9 * f) > abs(last_delta * df))
+                            % take a bisection step
+                            delta = (d_hi - d_lo)/2;
+                            d = d_lo + delta;
+                            if (d==d_lo)
+                                return; % nothing changed, we're done
+                            end
+                        else
+                            % otherwise take a Newton's method step
+                            delta = f/df;
+                            t = d;
+                            d = d - delta;
+                            if (d == t)
+                                return; % nothing changed, we're done
+                            end
+                        end
+                        % if we've reached the desired precision we're done
+                        if (abs(delta)<tolerance)
+                            return;
+                        end
+                        last_delta = delta;
+                        % recompute the function
+                        f = 2 * log(d) + w * d + f_b;
+                        if (f == 0 || f == last_f)
+                            return; % found the root or are not going to get any closer
+                        end
+                        last_f = f;
+                        % update the bracketing interval
+                        if (f < 0)
+                            d_lo = d;
+                        else
+                            d_hi = d;
+                        end
+                    end
+                    error('exceeded maximum iterations in solve()');
+                end
+            end
+            
         end
         
         function data_out = transform(obj,data_in)
@@ -169,7 +233,7 @@ classdef LogicleTransform
             if ~isempty(obj.n_bins)
                 for i = 1:length(data_in(:))
                     % lookup the bin into which this data point falls and return the left edge of the bin
-                    index = obj.n_bins;
+                    index = obj.n_bins; % linear search
                     while obj.lookup(index)>data_in(i)&&(index>1) % while lower edge is greater than this data point and we're not in the bottom-most bin, decrement the index
                         index = index - 1;
                     end
@@ -185,23 +249,23 @@ classdef LogicleTransform
             end
         end
         
-        function out = inverse(obj,scale)
+        function out = inverse(obj,data_in)
             % Paraphrasing of c++ implementation by Wayne A. Moore found at
             % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
             % reflect negative scale regions
-            out = zeros(size(scale));
-            for i = 1:length(scale(:))
-                negative = scale(i) < obj.x1;
+            out = zeros(size(data_in));
+            for i = 1:length(data_in(:))
+                negative = data_in(i) < obj.x1;
                 if (negative)
-                    scale(i) = 2*obj.x1 - scale(i);
+                    data_in(i) = 2*obj.x1 - data_in(i);
                 end
                 % compute the biexponential
-                if (scale(i) < obj.xTaylor)
+                if (data_in(i) < obj.xTaylor)
                     % near x1, i.e., data zero use the series expansion
-                    inverse = seriesBiexponential(obj,scale(i));
+                    inverse = seriesBiexponential(obj,data_in(i));
                 else
                     % this formulation has better roundoff behavior
-                    inverse = (obj.a*exp(obj.b*scale(i)) + obj.f) - obj.c/exp(obj.d*scale(i));
+                    inverse = (obj.a*exp(obj.b*data_in(i)) + obj.f) - obj.c/exp(obj.d*data_in(i));
                 end
                 
                 % handle scale(i) for negative values
@@ -228,7 +292,7 @@ classdef LogicleTransform
             end
             
             % initial guess at solution
-            if(value < obj.f)
+            if (value < obj.f)
                 % use linear approximation in the quasi linear region
                 x = obj.x1 + value/obj.taylor(1);
             else
@@ -238,7 +302,7 @@ classdef LogicleTransform
             
             % try for precision unless in extended range
             tolerance = 3*eps(1);
-            if(x > 1)
+            if (x > 1)
                 tolerance = 3*eps(x);
             end
             
@@ -263,9 +327,9 @@ classdef LogicleTransform
                 x = x - delta;
                 
                 % if we've reached the desired precision we're done
-                if(abs(delta)<tolerance)
+                if (abs(delta)<tolerance)
                     % handle negative arguments
-                    if(negative)
+                    if (negative)
                         out = 2*obj.x1 - x;
                         return;
                     else
@@ -274,75 +338,12 @@ classdef LogicleTransform
                     end
                 end
             end
-            if(negative)
+            if (negative)
                 out = 2*obj.x1 - x;
                 return;
             else
                 out = x;
                 return;
-            end
-        end
-        
-        function d = solve_RTSAFE(obj,b,w)
-            % Paraphrasing of c++ implementation by Wayne A. Moore found at
-            % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
-            % w == 0 means its really arcsinh
-            if(w==0)
-                d = b;
-                return;
-            else
-                % Precision is the same as that of b
-                tolerance = 2*eps(b);
-                % Based on RTSAFE from Numerical Recepies 1st Edition
-                % Bracket the root
-                d_lo = 0;
-                d_hi = b;
-                % Bisection first step
-                d = (d_lo+d_hi)/2;
-                last_delta = d_hi - d_lo;
-                % evaluate the f(w,b) = 2 * (ln(d) - ln(b)) + w * (b + d) and its
-                % derrivative
-                f_b = -2*log(b) + w*b;
-                f = 2*log(d) + w*d + f_b;
-                last_f = NaN; % storage of last value of f
-                for i=1:20
-                    df = 2/d + w;
-                    % if Newton's method would step outside the bracke or if it isn't converging quickly enough
-                    if(((d - d_hi) * df - f) * ((d - d_lo) * df - f) >= 0 || abs(1.9 * f) > abs(last_delta * df))
-                        % take a bisection step
-                        delta = (d_hi - d_lo)/2;
-                        d = d_lo + delta;
-                        if(d==d_lo)
-                            return; % nothing changed, we're done
-                        end
-                    else
-                        % otherwise take a Newton's method step
-                        delta = f/df;
-                        t = d;
-                        d = d - delta;
-                        if (d == t)
-                            return; % nothing changed, we're done
-                        end
-                    end
-                    % if we've reached the desired precision we're done
-                    if(abs(delta)<tolerance)
-                        return;
-                    end
-                    last_delta = delta;
-                    % recompute the function
-                    f = 2 * log(d) + w * d + f_b;
-                    if (f == 0 || f == last_f)
-                        return; % found the root or are not going to get any closer
-                    end
-                    last_f = f;
-                    % update the bracketing interval
-                    if(f < 0)
-                        d_lo = d;
-                    else
-                        d_hi = d;
-                    end
-                end
-                error('exceeded maximum iterations in solve()');
             end
         end
         
