@@ -231,7 +231,7 @@ classdef LogicleTransform
             %% preable to determine how to treat multidimensional input
             szo = size(obj);
             szd = size(data_in);
-            if szo==[1 1] % if scalar object, apply this to the whole data_in array
+            if szo==[1,1] % if scalar object, apply this to the whole data_in array
                 obji = @(i) 1;
             elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
                 obji = @(i) i;
@@ -245,10 +245,7 @@ classdef LogicleTransform
             for i = 1:length(data_in(:))
                 if ~isempty(obj(obji(i)).n_bins)
                     % lookup the bin into which this data point falls and return the left edge of the bin
-                    index = obj(obji(i)).n_bins; % linear search
-                    while obj(obji(i)).lookup(index)>data_in(i)&&(index>1) % while lower edge is greater than this data point and we're not in the bottom-most bin, decrement the index
-                        index = index - 1;
-                    end
+                    index = BinSearch(obj(obji(i)).lookup,data_in(i));
                     
                     % inverse interpolate the table linearly
                     delta = (data_in(i)-obj(obji(i)).lookup(index))./(obj(obji(i)).lookup(index+1)-obj(obji(i)).lookup(index));
@@ -256,6 +253,22 @@ classdef LogicleTransform
                 else
                     data_out(i) = numerically_invert(obj(obji(i)),data_in(i));
                 end
+            end
+            
+            function ind = BinSearch(lookup,value) % binary search algorithm to find the left bin edge of the lookup vector into which data falls
+                lo = 1;
+                hi = length(lookup);
+                
+                while hi-lo>1
+                    mid = bitshift(lo+hi,-1);
+                    key = lookup(mid);
+                    if value>=key
+                        lo = mid;
+                    elseif value<key
+                        hi = mid;
+                    end
+                end
+                ind = lo;
             end
         end
         
@@ -265,7 +278,7 @@ classdef LogicleTransform
             %% preable to determine how to treat multidimensional input
             szo = size(obj);
             szd = size(data_in);
-            if szo==[1 1] % if scalar object, apply this to the whole data_in array
+            if szo==[1,1] % if scalar object, apply this to the whole data_in array
                 obji = @(i) 1;
             elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
                 obji = @(i) i;
