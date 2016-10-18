@@ -28,7 +28,7 @@ The inverse operation can be carried out as follows:
 
 The variable data can be a matrix of any number of dimensions. The logicle_transform function calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
 
-Axes ticks amd labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object.
+Axes ticks and labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object.
 
 ---
 ## Example 1
