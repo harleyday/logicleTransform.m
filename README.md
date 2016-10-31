@@ -14,22 +14,21 @@ These parameters are specified when creating a new LogicleTransform object:
 obj = LogicleTransform(T,W,M,A);
 obj = LogicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
 ```
-
 The optional n_bins parameter specifies the number of bins to be included in the fast logicle transform algorithm. When this parameter is specified, the fast logicle transform is used.
 
 The object stores internal variables for later calculations based on data. In this way, the object guides the calculation of many data points efficiently.
 
-Once the object is created, the data can be tranformed as follows:
+The .transform method calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
 ```MATLAB
 transformed_data = obj.transform(data);
 ```
 
-The inverse operation can be carried out as follows:
+The .inverse method performes the inverse operation.
 ```MATLAB
 data = obj.inverse(transformed_data);
 ```
 
-The variable data can be a matrix of any number of dimensions. The logicle_transform function calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
+The variable `data` can be a matrix of any number of dimensions.
 
 Axes ticks and labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object.
 
