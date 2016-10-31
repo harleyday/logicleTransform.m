@@ -44,7 +44,7 @@ ax = gca;
 ax.YTick = obj.Tick;
 ax.YTickLabel = obj.TickLabel;
 ```
-![alt text](http://HD1213/LogicleTransform-for-MATLAB/master/Example_1_img.png)
+![alt text](Example_1_img.png?raw=true "transformation curve")
 
 ## Example 2
 MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
@@ -59,7 +59,7 @@ ax.XTickLabel = obj(1).TickLabel;
 ax.YTick = obj(2).Tick;
 ax.YTickLabel = obj(2).TickLabel;
 ```
-![alt text](http://HD1213/LogicleTransform-for-MATLAB/master/Example_2_img.png)
+![alt text](Example_2_img.png?raw=true "scattered transformed data")
 
 ---
 Algorithms were developed by:  
