@@ -10,21 +10,24 @@ To apply the logicle transform, the parameters of the transformation must first 
 * A = number of additional decades of negative data values to be included
 
 These parameters are specified when creating a new LogicleTransform object:
-
-`obj = LogicleTransform(T,W,M,A)`  
-`obj = LogicleTransform(T,W,M,A,n_bins);`
+```
+obj = LogicleTransform(T,W,M,A);
+obj = LogicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
+```
 
 The optional n_bins parameter specifies the number of bins to be included in the fast logicle transform algorithm. When this parameter is specified, the fast logicle transform is used.
 
 The object stores internal variables for later calculations based on data. In this way, the object guides the calculation of many data points efficiently.
 
 Once the object is created, the data can be tranformed as follows:
-
-`transformed_data = obj.transform(data);`
+```
+transformed_data = obj.transform(data);
+```
 
 The inverse operation can be carried out as follows:
-
-`data = obj.inverse(transformed_data);`
+```
+data = obj.inverse(transformed_data);
+```
 
 The variable data can be a matrix of any number of dimensions. The logicle_transform function calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
 
@@ -32,27 +35,31 @@ Axes ticks and labels can be set by acessing the Tick and TickLabel properties o
 
 ---
 ## Example 1
-
-`obj = LogicleTransform(10000,2,4,0);`  
-`x = linspace(obj.inverse(0),obj.T,1000);`  
-`y = obj.transform(x);`  
-`plot(x,y);`  
-`ax = gca;`  
-`ax.YTick = obj.Tick;`  
-`ax.YTickLabel = obj.TickLabel;`
+```
+obj = LogicleTransform(10000,2,4,0);
+x = linspace(obj.inverse(0),obj.T,1000);
+y = obj.transform(x);
+plot(x,y);
+ax = gca;
+ax.YTick = obj.Tick;
+ax.YTickLabel = obj.TickLabel;
+```
+![alt text](http://master/Example_1_img.png)
 
 ## Example 2
 MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
-
-`obj = [LogicleTransform(10000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];`  
-`x = randn(1000,2)*50 + 10;`  
-`y = obj.transform(x);`  
-`scatter(y(:,1),y(:,2),'.');`  
-`ax = gca;`  
-`ax.XTick = obj(1).Tick;`  
-`ax.XTickLabel = obj(1).TickLabel;`  
-`ax.YTick = obj(2).Tick;`  
-`ax.YTickLabel = obj(2).TickLabel;`
+```
+obj = [LogicleTransform(10000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];
+`x = randn(1000,2)*50 + 10;
+`y = obj.transform(x);
+`scatter(y(:,1),y(:,2),'.');
+`ax = gca;
+`ax.XTick = obj(1).Tick;
+`ax.XTickLabel = obj(1).TickLabel;
+`ax.YTick = obj(2).Tick;
+`ax.YTickLabel = obj(2).TickLabel;
+```
+![alt text](http://master/Example_2_img.png)
 
 ---
 Algorithms were developed by:  
