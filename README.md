@@ -10,7 +10,7 @@ To apply the logicle transform, the parameters of the transformation must first 
 * A = number of additional decades of negative data values to be included
 
 These parameters are specified when creating a new LogicleTransform object:
-```
+```MATLAB
 obj = LogicleTransform(T,W,M,A);
 obj = LogicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
 ```
@@ -20,12 +20,12 @@ The optional n_bins parameter specifies the number of bins to be included in the
 The object stores internal variables for later calculations based on data. In this way, the object guides the calculation of many data points efficiently.
 
 Once the object is created, the data can be tranformed as follows:
-```
+```MATLAB
 transformed_data = obj.transform(data);
 ```
 
 The inverse operation can be carried out as follows:
-```
+```MATLAB
 data = obj.inverse(transformed_data);
 ```
 
@@ -35,7 +35,7 @@ Axes ticks and labels can be set by acessing the Tick and TickLabel properties o
 
 ---
 ## Example 1
-```
+```MATLAB
 obj = LogicleTransform(10000,2,4,0);
 x = linspace(obj.inverse(0),obj.T,1000);
 y = obj.transform(x);
@@ -44,11 +44,11 @@ ax = gca;
 ax.YTick = obj.Tick;
 ax.YTickLabel = obj.TickLabel;
 ```
-![alt text](http://master/Example_1_img.png)
+![alt text](http://HD1213/LogicleTransform-for-MATLAB/master/Example_1_img.png)
 
 ## Example 2
 MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
-```
+```MATLAB
 obj = [LogicleTransform(10000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];
 x = randn(1000,2)*50 + 10;
 y = obj.transform(x);
@@ -59,7 +59,7 @@ ax.XTickLabel = obj(1).TickLabel;
 ax.YTick = obj(2).Tick;
 ax.YTickLabel = obj(2).TickLabel;
 ```
-![alt text](http://master/Example_2_img.png)
+![alt text](http://HD1213/LogicleTransform-for-MATLAB/master/Example_2_img.png)
 
 ---
 Algorithms were developed by:  
