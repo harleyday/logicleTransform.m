@@ -49,8 +49,8 @@ ax.YTickLabel = obj.TickLabel;
 ## Example 2
 MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
 ```MATLAB
-rng = default; % for reproducability
-obj = [LogicleTransform(10000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];
+rng default; % for reproducability
+obj = [LogicleTransform(1000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];
 x = randn(1000,2)*50 + 10;
 y = obj.transform(x);
 scatter(y(:,1),y(:,2),'.');
