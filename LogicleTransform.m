@@ -236,7 +236,7 @@ classdef LogicleTransform
             elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
                 obji = @(i) i;
             elseif szo(2)==szd(2)&&szo(1)==1
-                obji = @(i) mod(floor(i/szd(1)),szd(2))+1;
+                obji = @(i) mod(floor((i-1)/szd(1)),szd(2))+1;
             else
                 error('Size of LogicleTransform object must be scalar, vector or same size as data_in');
             end
@@ -283,7 +283,7 @@ classdef LogicleTransform
             elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
                 obji = @(i) i;
             elseif szo(2)==szd(2)&&szo(1)==1
-                obji = @(i) mod(floor(i/szd(1)),szd(2))+1;
+                obji = @(i) mod(floor((i-1)/szd(1)),szd(2))+1;
             else
                 error('Size of LogicleTransform object must be scalar, vector or same size as data_in');
             end
