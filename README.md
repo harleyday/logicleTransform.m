@@ -1,4 +1,4 @@
-# LogicleTransform
+# logicleTransform
 
 ## MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
 
@@ -9,10 +9,10 @@ To apply the logicle transform, the parameters of the transformation must first 
 * M = number of approximately logarithmic decades
 * A = number of additional decades of negative data values to be included
 
-These parameters are specified when creating a new LogicleTransform object:
+These parameters are specified when creating a new logicleTransform object:
 ```MATLAB
-obj = LogicleTransform(T,W,M,A);
-obj = LogicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
+obj = logicleTransform(T,W,M,A);
+obj = logicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
 ```
 The optional `n_bins` parameter specifies the number of bins to be included in the fast logicle transform algorithm. When this parameter is specified, the fast logicle transform is used.
 
@@ -35,7 +35,7 @@ Axes ticks and labels can be set by acessing the Tick and TickLabel properties o
 ---
 ## Example 1
 ```MATLAB
-obj = LogicleTransform(10000,2,4,0);
+obj = logicleTransform(10000,2,4,0);
 x = linspace(obj.inverse(0),obj.T,1000);
 y = obj.transform(x);
 plot(x,y);
@@ -49,7 +49,7 @@ ax.YTickLabel = obj.TickLabel;
 MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
 ```MATLAB
 rng default; % for reproducability
-obj = [LogicleTransform(1000,2,4,0),LogicleTransform(10000,1,4.5,0.4,2^6)];
+obj = [logicleTransform(1000,2,4,0),logicleTransform(10000,1,4.5,0.4,2^6)];
 x = randn(1000,2)*50 + 10;
 y = obj.transform(x);
 scatter(y(:,1),y(:,2),'.');
@@ -63,6 +63,4 @@ ax.YTickLabel = obj(2).TickLabel;
 
 ---
 Algorithms were developed by:  
-Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. doi:10.1002/cyto.a.22030.
-
-Here's a [link to the paper](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4761345/).
+Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. [doi:10.1002/cyto.a.22030](http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/abstract).
