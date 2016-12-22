@@ -29,7 +29,7 @@ classdef logicleTransform
     end
     
     methods (Access = public)
-        function obj = LogicleTransform(T, W, M, A, varargin)
+        function obj = logicleTransform(T, W, M, A, varargin)
             % allocate the parameter structure
             if (T <= 0)
                 error('We require T > 0');
