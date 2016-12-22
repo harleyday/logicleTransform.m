@@ -1,4 +1,4 @@
-classdef LogicleTransform
+classdef logicleTransform
     
     properties (Access = public)
         T
