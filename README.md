@@ -30,7 +30,7 @@ data = obj.inverse(transformed_data);
 
 The variable `data` can be a matrix of any number of dimensions.
 
-Axes ticks and labels can be set by acessing the Tick and TickLabel properties of the LogicleTransform object.
+Axes ticks and labels can be set by acessing the Tick and TickLabel properties of the logicleTransform object.
 
 ---
 ## Example 1
