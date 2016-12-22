@@ -64,3 +64,9 @@ ax.YTickLabel = obj(2).TickLabel;
 ---
 Algorithms were developed by:  
 Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. [doi:10.1002/cyto.a.22030](http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/abstract).
+
+An implementation in R (which actually uses the compiled C code by the above authors is available from Bioconductor, in the "flowCore" package. To install this package in R, open R and enter:
+
+  ## try http:// if https:// URLs are not supported
+  source("https://bioconductor.org/biocLite.R")
+  biocLite("flowCore")
