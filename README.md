@@ -62,6 +62,11 @@ ax.YTickLabel = obj(2).TickLabel;
 ![alt text](Example_2_img.png?raw=true "scattered transformed data")
 
 ---
+**USEFUL TIP**
+
+Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory.
+
+---
 Algorithms were developed by:  
 Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. [doi:10.1002/cyto.a.22030](http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/abstract).
 
