@@ -18,12 +18,12 @@ The optional `n_bins` parameter specifies the number of bins to be included in t
 
 The object stores internal variables for later calculations based on data. In this way, the object guides the calculation of many data points efficiently.
 
-The .transform method calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
+The ``.transform()`` method calculates the transformed value of each element in turn, and returns a matrix of the same dimention as the input.
 ```MATLAB
 transformed_data = obj.transform(data);
 ```
 
-The .inverse method performes the inverse operation.
+The ``.inverse()`` method performes the inverse operation.
 ```MATLAB
 data = obj.inverse(transformed_data);
 ```
