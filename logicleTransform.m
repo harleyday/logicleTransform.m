@@ -159,7 +159,6 @@ classdef logicleTransform
                 
                 tick_index = tick_index + n_increments;
             end
-            
             function d = solve_RTSAFE(b,w)
                 % Paraphrasing of c++ implementation by Wayne A. Moore found at
                 % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
@@ -222,178 +221,18 @@ classdef logicleTransform
                     error('exceeded maximum iterations in solve()');
                 end
             end
-            
         end
         
-        function data_out = transform(obj,data_in)
-            % Paraphrasing of c++ implementation by Wayne A. Moore found at
-            % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
-            %% preable to determine how to treat multidimensional input
-            szo = size(obj);
-            szd = size(data_in);
-            if szo==[1,1] % if scalar object, apply this to the whole data_in array
-                obji = @(i) 1;
-            elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
-                obji = @(i) i;
-            elseif szo(2)==szd(2)&&szo(1)==1
-                obji = @(i) mod(floor((i-1)/szd(1)),szd(2))+1;
-            else
-                error('Size of LogicleTransform object must be scalar, vector or same size as data_in');
-            end
-            %%
-            data_out = zeros(size(data_in));
-            for i = 1:length(data_in(:))
-                if ~isempty(obj(obji(i)).n_bins)
-                    % lookup the bin into which this data point falls and return the left edge of the bin
-                    index = BinSearch(obj(obji(i)).lookup,data_in(i));
-                    
-                    % inverse interpolate the table linearly
-                    delta = (data_in(i)-obj(obji(i)).lookup(index))./(obj(obji(i)).lookup(index+1)-obj(obji(i)).lookup(index));
-                    data_out(i) = (index-1+delta)/obj(obji(i)).n_bins;
-                else
-                    data_out(i) = numerically_invert(obj(obji(i)),data_in(i));
-                end
-            end
-            
-            function ind = BinSearch(lookup,value) % binary search algorithm to find the left bin edge of the lookup vector into which data falls
-                lo = 1;
-                hi = length(lookup);
-                
-                while hi-lo>1
-                    mid = bitshift(lo+hi,-1);
-                    key = lookup(mid);
-                    if value>=key
-                        lo = mid;
-                    elseif value<key
-                        hi = mid;
-                    end
-                end
-                ind = lo;
-            end
-        end
+        data_out = transform(obj,data_in)
         
-        function out = inverse(obj,data_in)
-            % Paraphrasing of c++ implementation by Wayne A. Moore found at
-            % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
-            %% preable to determine how to treat multidimensional input
-            szo = size(obj);
-            szd = size(data_in);
-            if szo==[1,1] % if scalar object, apply this to the whole data_in array
-                obji = @(i) 1;
-            elseif szo==szd % if size of object is the same as that of data_in, apply each object to it's corresponding element in the array
-                obji = @(i) i;
-            elseif szo(2)==szd(2)&&szo(1)==1
-                obji = @(i) mod(floor((i-1)/szd(1)),szd(2))+1;
-            else
-                error('Size of LogicleTransform object must be scalar, vector or same size as data_in');
-            end
-            %%
-            out = zeros(size(data_in));
-            for i = 1:length(data_in(:))
-                negative = data_in(i) < obj(obji(i)).x1;
-                if (negative)
-                    data_in(i) = 2*obj(obji(i)).x1 - data_in(i);
-                end
-                % compute the biexponential
-                if (data_in(i) < obj(obji(i)).xTaylor)
-                    % near x1, i.e., data zero use the series expansion
-                    inverse = seriesBiexponential(obj(obji(i)),data_in(i));
-                else
-                    % this formulation has better roundoff behavior
-                    inverse = (obj(obji(i)).a*exp(obj(obji(i)).b*data_in(i)) + obj(obji(i)).f) - obj(obji(i)).c/exp(obj(obji(i)).d*data_in(i));
-                end
-                
-                % handle scale(i) for negative values
-                if (negative)
-                    out(i) = -inverse;
-                else
-                    out(i) = inverse;
-                end
-            end
-        end
+        data_out = inverse(obj,data_in)
     end
     
     methods (Access = private)
+        out = numerically_invert(obj,value)
         
-        function out = numerically_invert(obj,value)
-            if (value == 0)
-                out = obj.x1;
-                return;
-            end
-            % reflect negative values
-            negative = value < 0;
-            if (negative)
-                value = -value;
-            end
-            
-            % initial guess at solution
-            if (value < obj.f)
-                % use linear approximation in the quasi linear region
-                x = obj.x1 + value/obj.taylor(1);
-            else
-                % otherwise use ordinary logarithm
-                x = log(value/obj.a)/obj.b;
-            end
-            
-            % try for precision unless in extended range
-            tolerance = 3*eps(1);
-            if (x > 1)
-                tolerance = 3*eps(x);
-            end
-            
-            for i=0:10
-                % compute the function and its first two derivatives
-                ae2bx = obj.a*exp(obj.b*x);
-                ce2mdx = obj.c/exp(obj.d*x);
-                if (x < obj.xTaylor)
-                    % near zero use the Taylor series
-                    y = seriesBiexponential(obj,x) - value;
-                else
-                    % this formulation has better roundoff behavior
-                    y = ae2bx - ce2mdx + obj.f - value;
-                end
-                abe2bx = obj.b*ae2bx;
-                cde2mdx = obj.d*ce2mdx;
-                dy = abe2bx + cde2mdx;
-                ddy = obj.b*abe2bx - obj.d*cde2mdx;
-                
-                % this is Halley's method with cubic convergence
-                delta = y/(dy*(1 - y*ddy/(2*dy^2)));
-                x = x - delta;
-                
-                % if we've reached the desired precision we're done
-                if (abs(delta)<tolerance)
-                    % handle negative arguments
-                    if (negative)
-                        out = 2*obj.x1 - x;
-                        return;
-                    else
-                        out = x;
-                        return;
-                    end
-                end
-            end
-            if (negative)
-                out = 2*obj.x1 - x;
-                return;
-            else
-                out = x;
-                return;
-            end
-        end
+        out = seriesBiexponential(obj,scale)
         
-        function out = seriesBiexponential(obj,scale)
-            % Paraphrasing of c++ implementation by Wayne A. Moore found at
-            % http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/full
-            % Taylor series is around x1
-            x = scale - obj.x1;
-            % note that taylor(2) should be identically zero according
-            % to the Logicle condition so skip it here
-            sum = obj.taylor(16)*x; % TAYLOR_LENGTH = 16
-            for i = 16:(-1):3
-                sum = (sum + obj.taylor(i))*x;
-            end
-            out = (sum*x + obj.taylor(1))*x;
-        end
+        d = solve_RTSAFE(b,w)
     end
 end
