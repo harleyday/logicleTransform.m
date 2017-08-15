@@ -4,7 +4,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-<details is="simple-installation">
+<details id="simple-installation">
   <summary>
     <strong>
       Simple installation (Click to expand)
