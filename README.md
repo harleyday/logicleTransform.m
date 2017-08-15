@@ -2,6 +2,17 @@
 
 ## MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
 
+----------------------------------------------------------------------------------------------------------------------------
+
+<details>
+<summary><strong>Simple installation (Click to expand)</strong></summary>
+  Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line.<br>
+<pre><code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform
+</code></pre>
+</details>
+
+----------------------------------------------------------------------------------------------------------------------------
+
 To apply the logicle transform, the parameters of the transformation must first be set. There are four parameters:
 
 * T = "top of scale" value
@@ -12,7 +23,7 @@ To apply the logicle transform, the parameters of the transformation must first 
 These parameters are specified when creating a new logicleTransform object:
 ```MATLAB
 obj = logicleTransform(T,W,M,A);
-obj = logicleTransform(T,W,M,A,n_bins); % uses linear interpolation of transform with n_bins evaluated points
+obj = logicleTransform(T,W,M,A,n_bins); % linear interpolation of transform with n_bins evaluated points
 ```
 The optional `n_bins` parameter specifies the number of bins to be included in the fast logicle transform algorithm. When this parameter is specified, the fast logicle transform is used.
 
