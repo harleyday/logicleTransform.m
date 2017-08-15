@@ -6,9 +6,9 @@
 
 <details>
 <summary><strong>Simple installation (Click to expand)</strong></summary>
-  Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line.<br>
-<pre><code name="simple-installation">git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform
-</code></pre>
+  Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line.<br><a name="simple-installation">
+<pre><code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform
+</code></pre></a>
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
