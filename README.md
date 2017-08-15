@@ -7,7 +7,7 @@
 <details>
 <summary><strong>Simple installation (Click to expand)</strong></summary>
   Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line.<br>
-<pre><code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform
+<pre><code name="simple-installation">git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform
 </code></pre>
 </details>
 
@@ -75,7 +75,7 @@ ax.YTickLabel = obj(2).TickLabel;
 ---
 **USEFUL TIP**
 
-Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory.
+Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory. This can be achieved using the [command above](#simple-installation).
 
 ---
 Algorithms were developed by:  
