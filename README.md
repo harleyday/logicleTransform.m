@@ -11,17 +11,9 @@
     </strong>
   </summary>
   
-  Go to your working directory for your MATLAB project, and clone this repository using
-  <a href="https://git-scm.com/downloads">
-    <code>
-      git
-    </code>
-  </a>
-  command line.
+  Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line:
   <br>
-  <pre>
-    <code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform</code>
-  </pre>
+  <pre><code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform</code></pre>
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
