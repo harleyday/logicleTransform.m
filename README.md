@@ -4,8 +4,8 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-<details>
-<summary>
+<details is="simple-installation">
+  <summary>
     <strong>
       Simple installation (Click to expand)
     </strong>
@@ -19,11 +19,9 @@
   </a>
   command line.
   <br>
-  <a id="simple-installation">
-    <pre>
-      <code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform</code>
-    </pre>
-  </a>
+  <pre>
+    <code>git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform</code>
+  </pre>
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
