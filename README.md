@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # logicleTransform
 
 ## MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
@@ -201,4 +200,3 @@ An implementation in R (which actually uses the compiled C/C++ code by the above
 source("https://bioconductor.org/biocLite.R")
 biocLite("flowCore")
 ```
->>>>>>> 13c9b1fad6056f31413c6ee5a10a5faeea79e88c
