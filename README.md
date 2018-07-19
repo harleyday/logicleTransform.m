@@ -11,10 +11,16 @@
     </strong>
   </summary>
   
-  Go to your working directory for your MATLAB project, and clone this repository using <a href="https://git-scm.com/downloads"><code>git</code></a> command line:
+  <strong>For linux users</strong>
+  <br>
+  Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive using curl:
   <br>
   <pre><code>cd path/to/working/directory
-git clone https://github.com/harleyday/logicleTransform-for-MATLAB.git @logicleTransform</code></pre>
+curl -L https://github.com/harleyday/logicleTransform-for-MATLAB/archive/v2.0.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-2.0/@logicleTransform/</code></pre>
+  
+  <strong>For windows users</strong>
+  <br>
+  Go to the [releases page](https://github.com/harleyday/logicleTransform-for-MATLAB/releases), and download the latest zip file. Extract the `@logicleTransform` directory into your MATLAB working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
