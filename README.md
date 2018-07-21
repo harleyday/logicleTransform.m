@@ -20,7 +20,7 @@ curl -L https://github.com/harleyday/logicleTransform-for-MATLAB/archive/v2.0.ta
   
   <strong>For windows users</strong>
   <br>
-  Go to the [releases page](https://github.com/harleyday/logicleTransform-for-MATLAB/releases), and download the latest zip file. Extract the `@logicleTransform` directory into your MATLAB working directory.
+  Go to the <a href="https://github.com/harleyday/logicleTransform-for-MATLAB/releases">releases page</a>, and download the latest zip file. Extract the `@logicleTransform` directory into your MATLAB working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
