@@ -26,7 +26,7 @@ curl -L https://github.com/harleyday/logicleTransform-for-MATLAB/archive/1.0.tar
 
   <strong>For windows users</strong>
   <br>
-  Download and extract the <a href="https://github.com/harleyday/logicleTransform-for-MATLAB/releases/download/1.0/logicleTransform.zip">zip file</a>. The folder `@logicleTransform` should be placed into your working directory.
+  Download and extract the <a href="https://github.com/harleyday/logicleTransform-for-MATLAB/archive/v1.0.zip">zip archive</a>. The folder `@logicleTransform` should be placed into your working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
