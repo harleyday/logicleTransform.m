@@ -7,10 +7,10 @@
 ### Installation
 
 **Easiest way**:
-This app is available from the "Get Add-Ons" section of the MATLAB GUI. Search for "Logicle Transform".
+This toolbox is available from the "Get Add-Ons" section of the MATLAB GUI. Search for "Logicle Transform".
 
 **Direct download**:
-Download the latest [`Logicle.Transform.mlappinstall` file](https://github.com/harleyday/logicleTransform-for-MATLAB/releases/download/1.0/Logicle.Transform.mlappinstall). Install this from MATLAB by double-clicking on the file.
+Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyday/logicleTransform-for-MATLAB/releases/download/1.0/Logicle.Transform.mltbx). Install this from MATLAB by double-clicking on the file.
 
 <details id="source-installation">
   <summary>
