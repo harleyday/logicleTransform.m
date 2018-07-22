@@ -4,23 +4,25 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-<details id="simple-installation">
+### Installation
+
+Download the latest [`Logicle.Transform.mlappinstall` file](https://github.com/harleyday/logicleTransform-for-MATLAB/releases/download/1.0/Logicle.Transform.mlappinstall). Install this from MATLAB by double-clicking on the file.
+
+<details id="source-installation">
   <summary>
-    <strong>
-      Simple installation (Click to expand)
-    </strong>
+    <strong>Installation for those wishing to edit with the source code. (Click to expand)</strong>
   </summary>
-  
+  These instructions will place the source code in your working directory so that you can edit it as you wish.  
   <strong>For linux users</strong>
   <br>
-  Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive using curl:
+  Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive. This can be done using a curl one-liner:
   <br>
   <pre><code>cd path/to/working/directory
-curl -L https://github.com/harleyday/logicleTransform-for-MATLAB/archive/v2.0.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-2.0/@logicleTransform/</code></pre>
-  
+curl -L https://github.com/harleyday/logicleTransform-for-MATLAB/archive/v2.0.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-1.0/@logicleTransform/</code></pre>
+
   <strong>For windows users</strong>
   <br>
-  Go to the <a href="https://github.com/harleyday/logicleTransform-for-MATLAB/releases">releases page</a>, and download the latest zip file. Extract the `@logicleTransform` directory into your MATLAB working directory.
+  Download and extract the <a href="https://github.com/harleyday/logicleTransform-for-MATLAB/releases/download/1.0/logicleTransform.zip">zip file</a>. The folder `@logicleTransform` should be placed into your working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
@@ -87,7 +89,7 @@ ax.YTickLabel = obj(2).TickLabel;
 ---
 **USEFUL TIP**
 
-Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory. This can be achieved using the [command above](#simple-installation).
+Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory. This can be achieved using the [command above](#source-installation).
 
 ---
 Algorithms were developed by:  
