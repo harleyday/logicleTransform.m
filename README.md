@@ -10,7 +10,7 @@
 This toolbox is available from the "Get Add-Ons" section of the MATLAB GUI. Search for "Logicle Transform".
 
 **Direct download**:
-Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.0/logicleTransform.mltbx). Install this from MATLAB by double-clicking on the file.
+Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.1/logicleTransform.mltbx). Install this from MATLAB by double-clicking on the file.
 
 <details id="source-installation">
   <summary>
@@ -22,11 +22,11 @@ Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyda
   Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive. This can be done using a curl one-liner:
   <br>
   <pre><code>cd path/to/working/directory
-curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.0.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-1.0/@logicleTransform/</code></pre>
+curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.1.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-1.1/@logicleTransform/</code></pre>
 
   <strong>For windows users</strong>
   <br>
-  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.0.zip">zip archive</a>. The folder `@logicleTransform` should be placed into your working directory.
+  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.1.zip">zip archive</a>. The folder `@logicleTransform` should be placed into your working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
