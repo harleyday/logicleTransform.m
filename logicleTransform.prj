@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m\logicleTransform.prj" location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="2122033071" file="C:\Users\Harle\Downloads\logicleTransform.m\logicleTransform.prj" location="C:\Users\Harle\Downloads\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>logicleTransform</param.appname>
     <param.authnamewatermark>Harley</param.authnamewatermark>
     <param.email>harley.day13@imperial.ac.uk</param.email>
@@ -9,7 +9,7 @@
 
 I have developed this implementation in order to avoid the complication of using MATLAB MEX files to use the C/C++ implementation already available. The implementation provided here is easily modified and extended within MATLAB, and I encourage you to contribute if you feel that something is missing.</param.description>
     <param.screenshot>${PROJECT_ROOT}\Example_2_img.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>1.1</param.version>
     <param.output>${PROJECT_ROOT}\logicleTransform.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -64,7 +64,6 @@ I have developed this implementation in order to avoid the complication of using
     <param.compatiblity.linux>true</param.compatiblity.linux>
     <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
     <unset>
-      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
@@ -85,7 +84,7 @@ I have developed this implementation in order to avoid the complication of using
       <param.compatiblity.matlabonline />
     </unset>
     <fileset.rootdir>
-      <file>\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m</file>
+      <file>C:\Users\Harle\Downloads\logicleTransform.m</file>
     </fileset.rootdir>
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}\@logicleTransform</file>
@@ -107,11 +106,11 @@ I have developed this implementation in order to avoid the complication of using
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m" name="logicleTransform.mltbx" optional="false">\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m\logicleTransform.mltbx</file>
+      <file location="C:\Users\Harle\Downloads\logicleTransform.m" name="logicleTransform.mltbx" optional="false">C:\Users\Harle\Downloads\logicleTransform.m\logicleTransform.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\matlab\R2018a</root>
+      <root>C:\Program Files\MATLAB\R2018a</root>
       <toolboxes>
         <toolbox name="fixedpoint" />
         <toolbox name="matlabcoder" />
