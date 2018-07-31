@@ -3,7 +3,7 @@
 <toc version="2.0">
 <!-- First tocitem specifies top level in Help browser Contents pane -->
 <!-- This can be a roadmap page, as shown below, or a content page -->
-    <tocitem target="mytoolbox_product_page.html">MyToolbox Toolbox
+    <tocitem target="mytoolbox_product_page.html">logicleTransform.m toolbox
         <!-- Nest tocitems to create hierarchical entries in  Contents-->
         <!-- To include icons, use the following syntax for tocitems: -->
         <!-- <tocitem target="foo.html" image="HelpIcon.NAME"> -->
@@ -15,21 +15,21 @@
         <!-- matlabroot/toolbox/matlab/icons -->
         <!-- A Getting Started Guide usually comes first -->
         <tocitem target="mytbx_gs_top.html" image="HelpIcon.GETTING_STARTED">
-            Getting Started with the MyToolbox Toolbox
+            Getting Started with the logicleTransform
             <tocitem target="mytbx_reqts_example.html">System Requirements
             </tocitem>
-            <tocitem target="mytbx_features_example.html">Features
+            <tocitem target="mytbx_features_example.html">Transformations
                 <!-- 2nd and lower TOC levels usually have anchor IDs -->
-                <tocitem target="mytbx_feature1_example.htm#10187">Feature 1
+                <tocitem target="logicleTransform_forward_example.htm#10187">Logicle transform
                 </tocitem>
-                <tocitem target="mytbx_feature2_example.htm#10193">Feature 2
+                <tocitem target="logicleTransform_inverse.htm#10193">Inverse logicle transform
                 </tocitem>
             </tocitem>
         </tocitem>
         <!-- User Guide comes next -->
         <tocitem target="mytbx_ug_intro.html" 
-            image="HelpIcon.USER_GUIDE">MyToolbox User Guide
-            <tocitem target="mytbx_ch_1.html">Setting Up MyToolbox
+            image="HelpIcon.USER_GUIDE">Usage
+            <tocitem target="installation.html">Installation
             </tocitem>
             <tocitem target="mytbx_ch_2.html">Processing Data
             </tocitem>

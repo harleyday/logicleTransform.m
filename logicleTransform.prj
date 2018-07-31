@@ -1,7 +1,7 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform\logicleTransform.prj" location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
+  <configuration file="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m\logicleTransform.prj" location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>logicleTransform</param.appname>
-    <param.authnamewatermark>Harley Day</param.authnamewatermark>
+    <param.authnamewatermark>Harley</param.authnamewatermark>
     <param.email>harley.day13@imperial.ac.uk</param.email>
     <param.company>Imperial College London</param.company>
     <param.summary>MATLAB class to apply the logicle transformation to a matrix and provide axes labels.</param.summary>
@@ -11,15 +11,9 @@ I have developed this implementation in order to avoid the complication of using
     <param.screenshot>${PROJECT_ROOT}\Example_2_img.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.output>${PROJECT_ROOT}\logicleTransform.mltbx</param.output>
-    <param.products.name>
-      <item>MATLAB</item>
-    </param.products.name>
-    <param.products.id>
-      <item>1</item>
-    </param.products.id>
-    <param.products.version>
-      <item>9.4</item>
-    </param.products.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
     <param.platforms />
     <param.guid>f502930c-83bc-4a63-afac-628ea66d61ec</param.guid>
     <param.exclude.filters>% List files contained in your toolbox folder that you would like to exclude
@@ -55,15 +49,13 @@ I have developed this implementation in order to avoid the complication of using
    &lt;/exampleCategory&gt;
 &lt;/examples&gt;</param.examples>
     <param.demosxml />
-    <param.apps>
-      <file>${PROJECT_ROOT}\Logicle Transform.mlappinstall</file>
-    </param.apps>
+    <param.apps />
     <param.registered.apps />
     <param.docs>${PROJECT_ROOT}\info.xml</param.docs>
     <param.getting.started.guide>${PROJECT_ROOT}\doc\GettingStarted.mlx</param.getting.started.guide>
     <param.matlabpath.excludes />
     <param.javaclasspath.excludes />
-    <param.exported.on.package>false</param.exported.on.package>
+    <param.exported.on.package>true</param.exported.on.package>
     <param.release.start />
     <param.release.end />
     <param.release.current.only>false</param.release.current.only>
@@ -72,18 +64,18 @@ I have developed this implementation in order to avoid the complication of using
     <param.compatiblity.linux>true</param.compatiblity.linux>
     <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
     <unset>
-      <param.authnamewatermark />
-      <param.email />
-      <param.company />
       <param.version />
       <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
       <param.platforms />
       <param.exclude.pcodedmfiles />
       <param.demosxml />
+      <param.apps />
       <param.registered.apps />
       <param.matlabpath.excludes />
       <param.javaclasspath.excludes />
-      <param.exported.on.package />
       <param.release.start />
       <param.release.end />
       <param.release.current.only />
@@ -93,7 +85,7 @@ I have developed this implementation in order to avoid the complication of using
       <param.compatiblity.matlabonline />
     </unset>
     <fileset.rootdir>
-      <file>\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform</file>
+      <file>\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m</file>
     </fileset.rootdir>
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}\@logicleTransform</file>
@@ -105,7 +97,6 @@ I have developed this implementation in order to avoid the complication of using
       <file>${PROJECT_ROOT}\Example_2_img.png</file>
       <file>${PROJECT_ROOT}\html</file>
       <file>${PROJECT_ROOT}\info.xml</file>
-      <file>${PROJECT_ROOT}\install.m</file>
       <file>${PROJECT_ROOT}\LICENSE</file>
       <file>${PROJECT_ROOT}\logicleTransformTest.m</file>
       <file>${PROJECT_ROOT}\README.md</file>
@@ -116,7 +107,7 @@ I have developed this implementation in order to avoid the complication of using
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform" name="logicleTransform.mltbx" optional="false">\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform\logicleTransform.mltbx</file>
+      <file location="\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m" name="logicleTransform.mltbx" optional="false">\\icnas1.cc.ic.ac.uk\hd1213\downloads\logicleTransform.m\logicleTransform.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>

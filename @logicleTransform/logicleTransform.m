@@ -240,4 +240,8 @@ classdef logicleTransform
         
         out = seriesBiexponential(obj,scale)
     end
+    
+    methods (Static)
+        results = test (obj);
+    end
 end
