@@ -10,7 +10,7 @@
 This toolbox is available from the "Get Add-Ons" section of the MATLAB GUI. Search for "Logicle Transform".
 
 **Direct download**:
-Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.1/logicleTransform.mltbx). Install this from MATLAB by double-clicking on the file.
+Download the latest [`Logicle.Transform.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.1/logicleTransform.m.mltbx). Install this from MATLAB by double-clicking on the file.
 
 <details id="source-installation">
   <summary>
