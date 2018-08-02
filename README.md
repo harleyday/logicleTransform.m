@@ -6,9 +6,6 @@
 
 ### Installation
 
-**Easiest way**:
-This toolbox is available from the "Get Add-Ons" section of the MATLAB GUI. Search for "Logicle Transform".
-
 **Direct download**:
 Download the latest [`Logicle.Transform.m.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.1/logicleTransform.m.mltbx). Install this from MATLAB by double-clicking on the file.
 
@@ -89,6 +86,23 @@ ax.YTick = obj(2).Tick;
 ax.YTickLabel = obj(2).TickLabel;
 ```
 ![alt text](./Example_2_img.png?raw=true "scattered transformed data")
+
+---
+## Run tests
+
+You can run unit testing of this MATLAB class using the following static method.
+```MATLAB
+result = logicleTransform.test;
+```
+This will yield the following:
+```MATLAB
+Checking logicleTransform.m toolbox performance using the packaged test suite.
+Running logicleTransformTest
+......
+Done logicleTransformTest
+Tests passed with no errors. Enjoy!
+User manual can be found at the GitHub Pages site.
+```
 
 ---
 **USEFUL TIP**
