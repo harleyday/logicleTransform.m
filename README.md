@@ -94,14 +94,71 @@ You can run unit testing of this MATLAB class using the following static method.
 ```MATLAB
 result = logicleTransform.test;
 ```
-This will yield the following:
+If the toolbox is working, this will yield the following:
 ```MATLAB
 Checking logicleTransform.m toolbox performance using the packaged test suite.
 Running logicleTransformTest
 ......
 Done logicleTransformTest
+__________
+
+  6×6 table
+
+                                                       Name                                                        Passed    Failed    Incomplete    Duration       Details   
+    ___________________________________________________________________________________________________________    ______    ______    __________    _________    ____________
+
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)'              true      false       false        0.015385    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testSize'                                      true      false       false       0.0015229    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation'                            true      false       false         0.04154    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'    true      false       false       0.0061918    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize'                            true      false       false       0.0012439    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation'                  true      false       false        0.028712    [1×1 struct]
+
 Tests passed with no errors. Enjoy!
 User manual can be found at the GitHub Pages site.
+```
+If there is a bug somewhere, this test suite might detect it and return something like:
+```MATLAB
+Checking logicleTransform.m toolbox performance using the packaged test suite.
+Running logicleTransformTest
+
+================================================================================
+SOME ERROR DETAILS
+================================================================================
+
+Done logicleTransformTest
+__________
+
+Failure Summary:
+
+     Name                                                                                                       Failed  Incomplete  Reason(s)
+    ==========================================================================================================================================
+     logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)              X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs=transform_parameters,torance=high]/testSize                                      X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation                            X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)    X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize                            X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation                  X         X       Errored.
+    
+  6×6 table
+
+                                                       Name                                                        Passed    Failed    Incomplete     Duration       Details   
+    ___________________________________________________________________________________________________________    ______    ______    __________    __________    ____________
+
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)'              false     true        true         0.0016833    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testSize'                                      false     true        true                 0    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation'                            false     true        true                 0    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'    false     true        true        0.00072476    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize'                            false     true        true                 0    [1×1 struct]
+    'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation'                  false     true        true                 0    [1×1 struct]
+
+Logicle Transform toolbox contains errors. Please register this issue at the GitHub repository issues page.
+Thank you for your time, and sorry for the inconvenience.
 ```
 
 ---
