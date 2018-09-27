@@ -1,11 +1,6 @@
 import matlab.unittest.TestSuite;
 
-try
-    suite = TestSuite.fromClass ( ?logicleTransformTest );
-    results = run ( suite );
-    display ( results );
-catch e
-    disp ( getReport ( e, 'extended' ) );
-    exit ( 1 );
-end
+suite = TestSuite.fromClass ( ?logicleTransformTest );
+results = run ( suite );
+display ( table ( results ) );
 exit(any([results.Failed]));
