@@ -19,7 +19,7 @@ Download the latest [`Logicle.Transform.m.mltbx` file](https://github.com/harley
   Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive. This can be done using a curl one-liner:
   <br>
   <pre><code>cd path/to/working/directory
-curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | tar -xzf - --strip-components=1 logicleTransform-for-MATLAB-1.2/@logicleTransform/</code></pre>
+curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | tar -xzf - --strip-components=1 logicleTransform.m-1.2/@logicleTransform/</code></pre>
 
   <strong>For windows users</strong>
   <br>
