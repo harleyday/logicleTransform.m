@@ -116,7 +116,7 @@ ax.YTickLabel = obj(2).TickLabel;
 
   Tests passed with no errors. Enjoy!
   User manual can be found at the <a href="https://harleyday.github.io/logicleTransform.m/">GitHub Pages site</a>.</code></pre>
-  </br>
+  
   If there is a bug somewhere, this test suite might detect it and return something like:
   <pre><code>Checking logicleTransform.m toolbox performance using the packaged test suite.
   Running logicleTransformTest
