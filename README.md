@@ -16,14 +16,14 @@ Download the latest [`Logicle.Transform.m.mltbx` file](https://github.com/harley
   These instructions will place the source code in your working directory so that you can edit it as you wish.  
   <strong>For linux users</strong>
   <br>
-  Go to your working directory for your MATLAB project, and extract the `@logicleTransform` directory from the latest release archive. This can be done using a curl one-liner:
+  Go to your working directory for your MATLAB project, and extract the <code>@logicleTransform</code> directory from the latest release archive. This can be done using a curl one-liner:
   <br>
   <pre><code>cd path/to/working/directory
 curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | tar -xzf - --strip-components=1 logicleTransform.m-1.2/@logicleTransform/</code></pre>
 
   <strong>For windows users</strong>
   <br>
-  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.2.zip">zip archive</a>. The folder `@logicleTransform` should be placed into your working directory.
+  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.2.zip">zip archive</a>. The folder <code>@logicleTransform</code> should be placed into your working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
