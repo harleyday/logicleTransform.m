@@ -23,7 +23,7 @@ This toolbox can be installed by any of the following methods:
 
 <details id="source-installation">
   <summary>
-    <strong>For developers wishing to edit the code (Click to expand)</strong>
+    <strong>For developers wishing to edit the code. (Click to expand)</strong>
   </summary>
   These instructions will place the source code in your working directory so that you can edit it as you wish.  
   <strong>For linux users</strong>
