@@ -1,16 +1,31 @@
 # logicleTransform
 
-## MATLAB class to apply the logicle transformation to a matrix and provide axes labels.
+**MATLAB class to apply the logicle transformation to a matrix and provide axes labels.**
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-### Installation
+## Installation
+This toolbox can be installed by any of the following methods:
+<details id="direct-download">
+  <summary>
+    <em>Advised method for MATLAB IDE users</em><br>
+    <strong>Direct download of the MATLAB toolbox file. (Click to expand)</strong>
+  </summary>
+  Download the latest <code>logicleTransform.m.mltbx</code> file from the <a href="https://github.com/harleyday/logicleTransform.m/releases">releases page of this GitHub repository</a>. Install this from MATLAB by double-clicking on the file.
+</details>
 
-**Direct download**:
-Download the latest [`Logicle.Transform.m.mltbx` file](https://github.com/harleyday/logicleTransform.m/releases/download/v1.2/logicleTransform.m.mltbx). Install this from MATLAB by double-clicking on the file.
+<details id="MATLAB-command-installation">
+  <summary>
+    <em>For those with no MATLAB IDE (perhaps running on a server)</em><br>
+    <strong>MATLAB command to download and install from the MATLAB command line. (Click to expand)</strong>
+  </summary>
+  Once you've downloaded the <a href="https://harleyday.github.io/downloadGitHubRelease/"><code>downloadGitHubRelease</code></a> tool, you can install the <code>logicleTransform.m</code> toolbox using the following at the MATLAB command line:<br>
+  <code>downloadGitHubRelease ( 'harleyday/logicleTransform.m', 'install', true );</code>
+</details>
 
 <details id="source-installation">
   <summary>
+    <em>For developers</em><br>
     <strong>Installation for those wishing to edit with the source code. (Click to expand)</strong>
   </summary>
   These instructions will place the source code in your working directory so that you can edit it as you wish.  
@@ -27,6 +42,8 @@ curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | ta
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+## Usage
 
 To apply the logicle transform, the parameters of the transformation must first be set. There are four parameters:
 
