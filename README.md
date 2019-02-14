@@ -25,7 +25,7 @@ This toolbox can be installed by any of the following methods:
   <summary>
     <strong>For developers wishing to edit the code. (Click to expand)</strong>
   </summary>
-  These instructions will place the source code in your working directory so that you can edit it as you wish.  
+  These instructions will place the source code in your working directory so that you can edit it as you wish.<br>
   <strong>For linux users</strong>
   <br>
   Go to your working directory for your MATLAB project, and extract the <code>@logicleTransform</code> directory from the latest release archive. This can be done using a curl one-liner:
