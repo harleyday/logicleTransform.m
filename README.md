@@ -46,10 +46,10 @@ curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | ta
 
 To apply the logicle transform, the parameters of the transformation must first be set. There are four parameters:
 
-* T = "top of scale" value
-* W = number of approximately linear decades
-* M = number of approximately logarithmic decades
-* A = number of additional decades of negative data values to be included
+  * T = "top of scale" value
+  * W = number of approximately linear decades
+  * M = number of approximately logarithmic decades
+  * A = number of additional decades of negative data values to be included
 
 These parameters are specified when creating a new logicleTransform object:
 ```MATLAB
@@ -177,7 +177,7 @@ ax.YTickLabel = obj(2).TickLabel;
 </details>
 
 ---
-**USEFUL TIP**
+## USEFUL TIP
 
 Using class folders as [documented here](https://uk.mathworks.com/help/matlab/matlab_oop/organizing-classes-in-folders.html) is a useful way to keep this (and other classes you may have written) separated in your filesystem to prevent confusion. In this case, download this repository, and place it in a folder called ``@logicleTransform`` in your working directory. This can be achieved using the [command above](#source-installation).
 
