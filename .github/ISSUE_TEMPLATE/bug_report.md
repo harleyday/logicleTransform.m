@@ -21,8 +21,8 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. Linux Ubuntu 18.04 LTS]
- - MATLAB version [e.g. R2018b]
+ - OS: (e.g. Linux Ubuntu 18.04 LTS)
+ - MATLAB version (e.g. R2018b)
 
 **Additional context**
 Add any other context about the problem here.
