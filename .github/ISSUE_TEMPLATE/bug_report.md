@@ -9,10 +9,10 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
- 1. Download toolbox version '...' / Roll the source back to commit id '...'
- 2. Code to reproduce the error from scratch
- 3. Scroll down to '....'
- 4. See error
+1. Download toolbox version '...' / Roll the source back to commit id '...'
+2. Code to reproduce the error from scratch
+3. Scroll down to '....'
+4. See error
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
