@@ -46,10 +46,10 @@ curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.2.tar.gz | ta
 
 To apply the logicle transform, the parameters of the transformation must first be set. There are four parameters:
 
-  * T = "top of scale" value
-  * W = number of approximately linear decades
-  * M = number of approximately logarithmic decades
-  * A = number of additional decades of negative data values to be included
+* T = "top of scale" value
+* W = number of approximately linear decades
+* M = number of approximately logarithmic decades
+* A = number of additional decades of negative data values to be included
 
 These parameters are specified when creating a new logicleTransform object:
 ```MATLAB
