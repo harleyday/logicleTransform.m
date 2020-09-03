@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="2122033071" file="C:\Users\Harle\Downloads\logicleTransform.m\logicleTransform.prj" location="C:\Users\Harle\Downloads\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="2122033071" file="\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m\logicleTransform.prj" location="\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>logicleTransform</param.appname>
     <param.authnamewatermark>Harley</param.authnamewatermark>
     <param.email>harley.day13@imperial.ac.uk</param.email>
@@ -9,7 +9,7 @@
 
 I have developed this implementation in order to avoid the complication of using MATLAB MEX files to use the C/C++ implementation already available. The implementation provided here is easily modified and extended within MATLAB, and I encourage you to contribute if you feel that something is missing.</param.description>
     <param.screenshot>${PROJECT_ROOT}\Example_2_img.png</param.screenshot>
-    <param.version>1.1</param.version>
+    <param.version>1.3</param.version>
     <param.output>${PROJECT_ROOT}\logicleTransform.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -56,6 +56,11 @@ I have developed this implementation in order to avoid the complication of using
     <param.matlabpath.excludes />
     <param.javaclasspath.excludes />
     <param.exported.on.package>true</param.exported.on.package>
+    <param.required.addons>
+      <requiredaddons />
+    </param.required.addons>
+    <param.matlab.project.id />
+    <param.matlab.project.name />
     <param.release.start />
     <param.release.end />
     <param.release.current.only>false</param.release.current.only>
@@ -63,6 +68,12 @@ I have developed this implementation in order to avoid the complication of using
     <param.compatiblity.macos>true</param.compatiblity.macos>
     <param.compatiblity.linux>true</param.compatiblity.linux>
     <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
     <unset>
       <param.output />
       <param.products.name />
@@ -75,6 +86,8 @@ I have developed this implementation in order to avoid the complication of using
       <param.registered.apps />
       <param.matlabpath.excludes />
       <param.javaclasspath.excludes />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
       <param.release.start />
       <param.release.end />
       <param.release.current.only />
@@ -82,11 +95,18 @@ I have developed this implementation in order to avoid the complication of using
       <param.compatiblity.macos />
       <param.compatiblity.linux />
       <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
     </unset>
     <fileset.rootdir>
-      <file>C:\Users\Harle\Downloads\logicleTransform.m</file>
+      <file>${PROJECT_ROOT}</file>
     </fileset.rootdir>
     <fileset.rootfiles>
+      <file>${PROJECT_ROOT}\.github</file>
       <file>${PROJECT_ROOT}\@logicleTransform</file>
       <file>${PROJECT_ROOT}\_config.yml</file>
       <file>${PROJECT_ROOT}\demos.xml</file>
@@ -106,49 +126,12 @@ I have developed this implementation in order to avoid the complication of using
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\Harle\Downloads\logicleTransform.m" name="logicleTransform.mltbx" optional="false">C:\Users\Harle\Downloads\logicleTransform.m\logicleTransform.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="logicleTransform.mltbx" optional="false">\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m\logicleTransform.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2018a</root>
-      <toolboxes>
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabcoder" />
-        <toolbox name="matlabhdlcoder" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="gpucoder" />
-        <toolbox name="polyspacebugfinder" />
-      </toolboxes>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <gpucoder>
-          <enabled>true</enabled>
-        </gpucoder>
-      </toolbox>
-      <toolbox>
-        <polyspacebugfinder>
-          <enabled>true</enabled>
-        </polyspacebugfinder>
-      </toolbox>
+      <root>C:\Program Files\MATLAB\R2019a</root>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>false</unix>
