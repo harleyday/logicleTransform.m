@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Matlab Unit Test
+
+# Controls when the action will run. 
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "test-transform"
+  test-transform:
+    name: Run MATLAB Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run tests and generate artifacts
+        uses: matlab-actions/run-tests@v1
+        with:
+          test-results-junit: test-results/results.xml
+          code-coverage-cobertura: code-coverage/coverage.xml
+  
+
+  
