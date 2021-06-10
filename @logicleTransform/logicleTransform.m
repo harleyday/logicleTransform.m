@@ -231,8 +231,6 @@ classdef logicleTransform
         data_out = transform(obj,data_in)
         
         data_out = inverse(obj,data_in)
-        
-        ax_obj_out = labelAxes(obj,ax_obj_in)
     end
     
     methods (Access = private)
