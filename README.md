@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f6ed7da0587340e1bde5c0ce8bb5eb58)](https://app.codacy.com/app/harleyday/logicleTransform.m?utm_source=github.com&utm_medium=referral&utm_content=harleyday/logicleTransform.m&utm_campaign=Badge_Grade_Dashboard)
 [![Unit Test](https://github.com/harleyday/logicleTransform.m/actions/workflows/main.yml/badge.svg)](https://github.com/harleyday/logicleTransform.m/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/harleyday/logicleTransform.m/branch/master/graph/badge.svg?token=07JG0AC4XA)](https://codecov.io/gh/harleyday/logicleTransform.m)
 [![View logicleTransform.m on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://uk.mathworks.com/matlabcentral/fileexchange/68289-logicletransform-m)
 
 **MATLAB class to apply the logicle transformation to a matrix and provide axes labels.**
