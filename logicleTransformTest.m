@@ -92,6 +92,8 @@ classdef logicleTransformTest < matlab.unittest.TestCase
         
         function testRejectWrongInputSize(testCase)
             testCase.verifyError(@() testCase.obj2d.transform(0),'logicleTransform:InputSizeError');
+            testCase.verifyError(@() testCase.obj2d.inverse(0),'logicleTransform:InputSizeError');
+            testCase.verifyError(@() testCase.objNd.transform(rand(1,3)),'logicleTransform:InputSizeError');
             testCase.verifyError(@() testCase.objNd.transform(rand(1,3)),'logicleTransform:InputSizeError');
         end
         
