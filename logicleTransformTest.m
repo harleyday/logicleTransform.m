@@ -21,14 +21,36 @@ classdef logicleTransformTest < matlab.unittest.TestCase
     
     methods(TestClassSetup, ParameterCombination='sequential')
         function testLogicTranformConstructor ( testCase, inputs_1, inputs_2, torance )
+            % set up the inputs to the model
             inputs_1 = struct2cell(inputs_1);
             inputs_2 = struct2cell(inputs_2);
             
+            % build transformation objects of various different dimensions
             testCase.obj1d = logicleTransform(inputs_1{:});
             testCase.obj2d = [logicleTransform(inputs_1{:}),logicleTransform(inputs_2{:})];
             testCase.objNd = repmat(logicleTransform(inputs_1{:}),2,3);
             
+            % define the tolerance used in later tests to distinguish
+            % between the desired tolerance using the full algorithm, and
+            % that desired when using the fast transform
             testCase.expectedRelTol = torance;
+            
+            % check that the constructor throws an error if we give it
+            % incorrectly defined inputs
+            % 1. check error thrown if T<=0
+            testCase.verifyError(@() logicleTransform(-1,1,4.5,0.4),'logicleTransform:ParameterError');
+            % 2. check error thrown if W<0
+            testCase.verifyError(@() logicleTransform(1e4,-1,4.5,0.4),'logicleTransform:ParameterError');
+            % 3. check error thrown if M<=0
+            testCase.verifyError(@() logicleTransform(1e4,1,-4.5,0.4),'logicleTransform:ParameterError');
+            % 4. check error thrown if 2*W > M
+            testCase.verifyError(@() logicleTransform(1e4,3,4.5,0.4),'logicleTransform:ParameterError');
+            % 5. check error thrown if -W > A or A > (M - 2*W)
+            testCase.verifyError(@() logicleTransform(1e4,1,4.5,-2),'logicleTransform:ParameterError');
+            testCase.verifyError(@() logicleTransform(1e4,1,4.5,2.6),'logicleTransform:ParameterError');
+            % 6. check that the transform throws an error if the number of
+            % bins is not a scalar integar
+            testCase.verifyError(@() logicleTransform(1e4,2,4,0,3.5),'logicleTransform:NonintegarNumberOfBins');
         end
     end
     

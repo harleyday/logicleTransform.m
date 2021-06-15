@@ -32,19 +32,19 @@ classdef logicleTransform
         function obj = logicleTransform(T, W, M, A, varargin)
             % allocate the parameter structure
             if (T <= 0)
-                error('We require T > 0');
+                error('logicleTransform:ParameterError','We require T > 0');
             end
             if (W < 0)
-                error('We require W >= 0');
+                error('logicleTransform:ParameterError','We require W >= 0');
             end
             if (M <= 0)
-                error('We require M > 0');
+                error('logicleTransform:ParameterError','We require M > 0');
             end
             if (2*W > M)
-                error('We require W <= M/2');
+                error('logicleTransform:ParameterError','We require W <= M/2');
             end
             if (A > M - 2*W)||(A < -W)
-                error('We require -W <= A <= (M - 2*W)');
+                error('logicleTransform:ParameterError','We require -W <= A <= (M - 2*W)');
             end
             
             obj.T = T;
@@ -89,7 +89,7 @@ classdef logicleTransform
                     obj.n_bins = varargin{1};
                     obj.lookup = inverse(obj,linspace(0,1,obj.n_bins+1));
                 else
-                    error('Number of bins must be a scalar integar. We advise between 2^5 and 2^10 bins for high resolution and speed.')
+                    error('logicleTransform:NonintegarNumberOfBins','Number of bins must be a scalar integar. We advise between 2^5 and 2^10 bins for high resolution and speed.')
                 end
             end
             % This function is only used by the constructor once
