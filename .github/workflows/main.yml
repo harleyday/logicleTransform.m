@@ -27,6 +27,9 @@ jobs:
         with:
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.5.2
+        file: code-coverage/coverage.xml
   
 
   
