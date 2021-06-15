@@ -11,7 +11,7 @@ elseif szo==szd % if size of object is the same as that of data_in, apply each o
 elseif szo(2)==szd(2)&&szo(1)==1
     obji = @(i) mod(floor((i-1)/szd(1)),szd(2))+1;
 else
-    error('Size of LogicleTransform object must be scalar, vector or same size as data_in');
+    error('logicleTransform:InputSizeError','Size of LogicleTransform object must be scalar, vector or same size as data_in');
 end
 %%
 out = zeros(size(data_in));
