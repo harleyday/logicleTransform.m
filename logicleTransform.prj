@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="2122033071" file="\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m\logicleTransform.prj" location="\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1053600707" file="C:\Users\hd1213\Documents\logicleTransform.m\logicleTransform.prj" location="C:\Users\hd1213\Documents\logicleTransform.m" name="logicleTransform" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>logicleTransform</param.appname>
     <param.authnamewatermark>Harley</param.authnamewatermark>
     <param.email>harley.day13@imperial.ac.uk</param.email>
@@ -9,7 +9,7 @@
 
 I have developed this implementation in order to avoid the complication of using MATLAB MEX files to use the C/C++ implementation already available. The implementation provided here is easily modified and extended within MATLAB, and I encourage you to contribute if you feel that something is missing.</param.description>
     <param.screenshot>${PROJECT_ROOT}\Example_2_img.png</param.screenshot>
-    <param.version>1.3</param.version>
+    <param.version>1.4</param.version>
     <param.output>${PROJECT_ROOT}\logicleTransform.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -119,18 +119,17 @@ I have developed this implementation in order to avoid the complication of using
       <file>${PROJECT_ROOT}\LICENSE</file>
       <file>${PROJECT_ROOT}\logicleTransformTest.m</file>
       <file>${PROJECT_ROOT}\README.md</file>
-      <file>${PROJECT_ROOT}\testAll.m</file>
       <file>${PROJECT_ROOT}\Thumbs.db</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="logicleTransform.mltbx" optional="false">\\icnas1.cc.ic.ac.uk\hd1213\Documents\logicleTransform.m\logicleTransform.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="logicleTransform.mltbx" optional="false">C:\Users\hd1213\Documents\logicleTransform.m\logicleTransform.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2019a</root>
+      <root>C:\Program Files\MATLAB\R2021a</root>
       <toolboxes />
     </matlab>
     <platform>
