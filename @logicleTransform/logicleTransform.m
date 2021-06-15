@@ -182,8 +182,7 @@ classdef logicleTransform
                     obj.TickLabel{tick_index} = '';
                 else
                     if sn(k)==0
-                        obj.TickLabel{tick_index-1} = '0';
-                        obj.TickLabel{tick_index} = '';
+                        obj.TickLabel{tick_index} = '0';
                     else
                         if sn(k)==-1
                             sign_string = '-';
@@ -198,6 +197,12 @@ classdef logicleTransform
                 if k==n_decades
                     % write Tick for final decade
                     obj.Tick(tick_index) = obj.transform(decades(k));
+                    % Fill any subsequent ticks
+                    % which may be labelled '' so that the Tick vector is
+                    % monotonically increasing;
+                    if tick_index<n_ticks
+                        obj.Tick(tick_index+1:end) = linspace(obj.Tick(tick_index)+0.1, obj.Tick(tick_index)+0.2, n_ticks - tick_index);
+                    end
                     break;
                 end
                 
