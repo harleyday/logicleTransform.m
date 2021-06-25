@@ -10,19 +10,19 @@
 ----------------------------------------------------------------------------------------------------------------------------
 
 ## Installation
-This toolbox can be installed by any of the following methods:
+This call can be installed by any of the following methods:
 <details id="direct-download">
   <summary>
     <strong>MATLAB IDE users. (Click to expand)</strong>
   </summary>
-  Download the latest <code>logicleTransform.m.mltbx</code> file from the <a href="https://github.com/harleyday/logicleTransform.m/releases">releases page of this GitHub repository</a>. Install this from MATLAB by double-clicking on the file.
+  Download the latest <code>logicleTransform.m.mltbx</code> file from the <a href="https://github.com/harleyday/logicleTransform.m/releases">releases page of this GitHub repository</a>. Install this from MATLAB by double-clicking on toolbox the file.
 </details>
 
 <details id="MATLAB-command-installation">
   <summary>
     <strong>For those with no MATLAB IDE  (perhaps running MATLAB kernel in Jupyter Notebook). (Click to expand)</strong>
   </summary>
-  Once you've downloaded the <a href="https://harleyday.github.io/downloadGitHubRelease/"><code>downloadGitHubRelease</code></a> tool, you can install the <code>logicleTransform.m</code> toolbox using the following at the MATLAB command line:<br>
+  Once you've downloaded the <a href="https://harleyday.github.io/downloadGitHubRelease/"><code>downloadGitHubRelease</code></a> tool, you can install the <code>logicleTransform.m</code> toolbox file using the following at the MATLAB command line:<br>
   <code>downloadGitHubRelease ( 'harleyday/logicleTransform.m', 'install', true );</code>
 </details>
 
@@ -114,8 +114,8 @@ ax.YTickLabel = obj(2).TickLabel;
     <pre><code>result = logicleTransform.test;</code></pre>
   </summary>
   
-  If the toolbox is working, this will yield the following:
-  <pre><code>Checking logicleTransform.m toolbox performance using the packaged test suite.
+  If the class is working, this will yield the following:
+  <pre><code>Checking logicleTransform.m class performance using the packaged test suite.
   Running logicleTransformTest
   ......
   Done logicleTransformTest
@@ -137,7 +137,7 @@ ax.YTickLabel = obj(2).TickLabel;
   User manual can be found at the <a href="https://harleyday.github.io/logicleTransform.m/">GitHub Pages site</a>.</code></pre>
   
   If there is a bug somewhere, this test suite might detect it and return something like:
-  <pre><code>Checking logicleTransform.m toolbox performance using the packaged test suite.
+  <pre><code>Checking logicleTransform.m class performance using the packaged test suite.
   Running logicleTransformTest
 
   ================================================================================
@@ -175,7 +175,7 @@ ax.YTickLabel = obj(2).TickLabel;
       'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize'                            false     true        true                 0    [1×1 struct]
       'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation'                  false     true        true                 0    [1×1 struct]
 
-  Logicle Transform toolbox contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
+  Logicle Transform class contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
   Thank you for your time, and sorry for the inconvenience.</code></pre>
 </details>
 
