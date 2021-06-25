@@ -228,7 +228,7 @@ Failure Summary:
     {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation2d'            }    false     true        true                0    {1×1 struct}
     {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformationNd'            }    false     true        true                0    {1×1 struct}
 
-Logicle Transform toolbox contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
+Logicle Transform class contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
   Thank you for your time, and sorry for the inconvenience.</code></pre>
 </details>
 
