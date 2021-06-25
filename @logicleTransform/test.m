@@ -10,7 +10,7 @@ suite = TestSuite.fromClass ( ?logicleTransformTest );
 results = run ( suite );
 display ( table(results) );
 if any ( [results.Failed] )
-    disp( 'Logicle Transform toolbox contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.' );
+    disp( 'Logicle Transform class contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.' );
     disp( 'Thank you for your time, and sorry for the inconvenience.' );
 else
     disp( 'Tests passed with no errors. Enjoy!' );
