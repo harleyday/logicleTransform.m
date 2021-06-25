@@ -115,67 +115,120 @@ ax.YTickLabel = obj(2).TickLabel;
   </summary>
   
   If the class is working, this will yield the following:
-  <pre><code>Checking logicleTransform.m class performance using the packaged test suite.
-  Running logicleTransformTest
-  ......
-  Done logicleTransformTest
-  __________
+  <pre><code>Checking logicleTransform.m toolbox performance using the packaged test suite.
+Running logicleTransformTest
+.......... ..
+Done logicleTransformTest
+__________
 
-    6×6 table
+  12×6 table
 
-                                                         Name                                                        Passed    Failed    Incomplete    Duration       Details   
-      ___________________________________________________________________________________________________________    ______    ______    __________    _________    ____________
+                                                                              Name                                                                              Passed    Failed    Incomplete    Duration       Details   
+    ________________________________________________________________________________________________________________________________________________________    ______    ______    __________    _________    ____________
 
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)'              true      false       false        0.015385    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testSize'                                      true      false       false       0.0015229    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation'                            true      false       false         0.04154    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'    true      false       false       0.0061918    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize'                            true      false       false       0.0012439    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation'                  true      false       false        0.028712    [1×1 struct]
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testClass(type=logicleTransform)'                     }    true      false       false        0.094782    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testSize'                                             }    true      false       false       0.0085903    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testRejectWrongInputSize'                             }    true      false       false        0.019347    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation1d'                                 }    true      false       false         0.06245    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation2d'                                 }    true      false       false        0.071034    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformationNd'                                 }    true      false       false        0.011476    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'}    true      false       false        0.043506    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testSize'                        }    true      false       false       0.0008899    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testRejectWrongInputSize'        }    true      false       false        0.011629    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation1d'            }    true      false       false        0.014922    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation2d'            }    true      false       false        0.045648    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformationNd'            }    true      false       false       0.0061737    {1×1 struct}
 
   Tests passed with no errors. Enjoy!
   User manual can be found at the <a href="https://harleyday.github.io/logicleTransform.m/">GitHub Pages site</a>.</code></pre>
   
   If there is a bug somewhere, this test suite might detect it and return something like:
-  <pre><code>Checking logicleTransform.m class performance using the packaged test suite.
-  Running logicleTransformTest
+  <pre><code>Checking logicleTransform.m toolbox performance using the packaged test suite.
+Running logicleTransformTest
 
-  ================================================================================
-  SOME ERROR DETAILS
-  <span>================================================================================</span><!--the spans prevent the === being interpreted as underligning a title-->
+================================================================================
+Error occurred while setting up or tearing down logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high].
+As a result, all logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high] tests failed and did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'logicleTransform:ParameterError'
+    --------------
+    Error Details:
+    --------------
+    Error using logicleTransform (line 35)
+    We require T > 0
+    
+    Error in logicleTransformTest/testLogicTranformConstructor (line 29)
+                testCase.obj1d = logicleTransform(inputs_1{:});
+================================================================================
 
-  Done logicleTransformTest
-  <span>__________</span>
+================================================================================
+Error occurred while setting up or tearing down logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low].
+As a result, all logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low] tests failed and did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'logicleTransform:ParameterError'
+    --------------
+    Error Details:
+    --------------
+    Error using logicleTransform (line 35)
+    We require T > 0
+    
+    Error in logicleTransformTest/testLogicTranformConstructor (line 29)
+                testCase.obj1d = logicleTransform(inputs_1{:});
+================================================================================
 
-  Failure Summary:
+Done logicleTransformTest
+__________
 
-       Name                                                                                                       Failed  Incomplete  Reason(s)
-      ==========================================================================================================================================
-       logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)              X         X       Errored.
-      ------------------------------------------------------------------------------------------------------------------------------------------
-       logicleTransformTest[inputs=transform_parameters,torance=high]/testSize                                      X         X       Errored.
-      ------------------------------------------------------------------------------------------------------------------------------------------
-       logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation                            X         X       Errored.
-      ------------------------------------------------------------------------------------------------------------------------------------------
-       logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)    X         X       Errored.
-      ------------------------------------------------------------------------------------------------------------------------------------------
-       logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize                            X         X       Errored.
-      ------------------------------------------------------------------------------------------------------------------------------------------
-       logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation                  X         X       Errored.
+Failure Summary:
 
-    6×6 table
+     Name                                                                                                                                                  Failed  Incomplete  Reason(s)
+    =====================================================================================================================================================================================
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testClass(type=logicleTransform)                         X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testSize                                                 X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testRejectWrongInputSize                                 X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation1d                                     X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation2d                                     X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformationNd                                     X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)    X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testSize                            X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testRejectWrongInputSize            X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation1d                X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation2d                X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformationNd                X         X       Errored.
+  12×6 table
 
-                                                         Name                                                        Passed    Failed    Incomplete     Duration       Details   
-      ___________________________________________________________________________________________________________    ______    ______    __________    __________    ____________
+                                                                              Name                                                                              Passed    Failed    Incomplete    Duration       Details   
+    ________________________________________________________________________________________________________________________________________________________    ______    ______    __________    _________    ____________
 
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testClass(type=logicleTransform)'              false     true        true         0.0016833    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testSize'                                      false     true        true                 0    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters,torance=high]/testTransformation'                            false     true        true                 0    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'    false     true        true        0.00072476    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testSize'                            false     true        true                 0    [1×1 struct]
-      'logicleTransformTest[inputs=transform_parameters_and_n_bins,torance=low]/testTransformation'                  false     true        true                 0    [1×1 struct]
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testClass(type=logicleTransform)'                     }    false     true        true        0.0020224    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testSize'                                             }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testRejectWrongInputSize'                             }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation1d'                                 }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformation2d'                                 }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters,inputs_2=transform_parameters,torance=high]/testTransformationNd'                                 }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testClass(type=logicleTransform)'}    false     true        true        0.0008519    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testSize'                        }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testRejectWrongInputSize'        }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation1d'            }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformation2d'            }    false     true        true                0    {1×1 struct}
+    {'logicleTransformTest[inputs_1=transform_parameters_and_n_bins,inputs_2=transform_parameters_and_n_bins,torance=low]/testTransformationNd'            }    false     true        true                0    {1×1 struct}
 
-  Logicle Transform class contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
+Logicle Transform toolbox contains errors. Please register this issue at the <a href="https://github.com/harleyday/logicleTransform.m/issues/new/choose">GitHub repository issues page</a>.
   Thank you for your time, and sorry for the inconvenience.</code></pre>
 </details>
 
