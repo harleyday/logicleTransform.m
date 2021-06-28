@@ -97,5 +97,10 @@ classdef logicleTransformTest < matlab.unittest.TestCase
             testCase.verifyError(@() testCase.objNd.inverse(rand(1,3)),'logicleTransform:InputSizeError');
         end
         
+        function testDocumentationExample(testCase)
+            run('doc/GettingStarted.mlx');
+            close all;
+        end
+        
     end
 end
