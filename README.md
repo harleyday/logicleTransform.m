@@ -245,5 +245,6 @@ An implementation in R (which actually uses the compiled C/C++ code by the above
 ```R
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install("flowCore", version = "3.8")
+
+BiocManager::install("flowCore")
 ```
