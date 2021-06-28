@@ -239,7 +239,7 @@ Using class folders as [documented here](https://uk.mathworks.com/help/matlab/ma
 
 ---
 Algorithms were developed by:  
-Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. [doi:10.1002/cyto.a.22030](http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/abstract).
+Moore WA, Parks DR. Update for the Logicle Data Scale Including Operational Code Implementations. Cytometry Part A : the journal of the International Society for Analytical Cytology. 2012;81(4):273-277. [doi:10.1002/cyto.a.22030](http://onlinelibrary.wiley.com/doi/10.1002/cyto.a.22030/abstract). Back in 2016, when I began to write this MATLAB code, Moore and Parks' source code was available in the supplementary information of their publication. In 2021, the links they provide to this source code are no longer maintained on Stanford's servers.
 
 An implementation in R (which actually uses the compiled C/C++ code by the above authors) is [available from Bioconductor, in the "flowCore" package](https://www.bioconductor.org/packages/release/bioc/html/flowCore.html). To install this package in R, use the commands:
 ```R
