@@ -27,7 +27,7 @@ jobs:
         with:
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
-      - name: Mke Test Report Viewable
+      - name: Make Test Report Viewable
         uses: actions/upload-artifact@v2  # upload test results
         if: success() || failure()        # run this step even if previous step failed
         with:
