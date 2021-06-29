@@ -28,11 +28,12 @@ jobs:
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
       - name: Make Test Report Viewable
-        uses: actions/upload-artifact@v2  # upload test results
-        if: success() || failure()        # run this step even if previous step failed
+        uses: dorny/test-reporter@v1
+        if: success() || failure()          # run this step even if previous step failed
         with:
-          name: test-results
-          path: test-results/results.xml
+          name: MATLAB Class Tests
+          path: test-results/results.xml    # Path to test results
+          reporter: jest-junit              # Format of test results
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.5.2
         with:
