@@ -34,6 +34,7 @@ jobs:
           name: MATLAB Test Suite Report
           path: test-results/results.xml    # Path to test results
           reporter: java-junit              # Format of test results
+          outputs: conclusion time
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.5.2
         with:
