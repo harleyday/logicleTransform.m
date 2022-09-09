@@ -36,11 +36,11 @@ This call can be installed by any of the following methods:
   Go to your working directory for your MATLAB project, and extract the <code>@logicleTransform</code> directory from the latest release archive. This can be done using a curl one-liner:
   <br>
   <pre><code>cd path/to/working/directory
-curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.3.tar.gz | tar -xzf - --strip-components=1 logicleTransform.m-1.3/@logicleTransform/</code></pre>
+curl -L https://github.com/harleyday/logicleTransform.m/archive/v1.5.tar.gz | tar -xzf - --strip-components=1 logicleTransform.m-1.3/@logicleTransform/</code></pre>
 
   <strong>For windows users</strong>
   <br>
-  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.3.zip">zip archive</a>. The folder <code>@logicleTransform</code> should be placed into your working directory.
+  Download and extract the <a href="https://github.com/harleyday/logicleTransform.m/archive/v1.5.zip">zip archive</a>. The folder <code>@logicleTransform</code> should be placed into your working directory.
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------
