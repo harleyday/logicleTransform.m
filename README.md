@@ -91,7 +91,7 @@ ax.YTickLabel = obj.TickLabel;
 ![alt text](./img/Example_1_img.png?raw=true "transformation curve")
 
 ## Example 2
-MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting (as is generally the case when using a logicle transform).
+MATLAB object arrays may be used to operate on each column of a matrix using different transform parameters. This is particularly useful for data intended for scatter plotting where each axis requires a different transformation (as is generally the case when using a logicle transform). Create a row-vector of logicleTransform objects where each column corresponds to an exis of your plot. Then provide your data with the same number of columns, and each column will be processed according to the corresponding logiclTransform parameters.
 ```MATLAB
 rng default; % for reproducability
 obj = [logicleTransform(1000,2,4,0),logicleTransform(10000,1,4.5,0.4,2^6)];
